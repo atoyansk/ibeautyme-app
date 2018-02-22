@@ -1,0 +1,48 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title *ngFor="let p of perfil | async">
+      {{ p.nome }}
+    </ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="no-scroll">
+  <ion-card>
+    <ion-card-header>
+      Você selecionou:
+    </ion-card-header>
+    <ion-card-content>
+      <ion-row>
+        Serviço: {{ servicos.nome }}
+      </ion-row>
+      <ion-row>
+        Preço: {{ servicos.preco }}
+      </ion-row>
+      <ion-row>
+        Duração: {{ servicos.tempo }}
+      </ion-row>
+    </ion-card-content>
+  </ion-card>
+  <ion-item no-lines>
+    Selecione o Profissional
+  </ion-item>
+  <ion-item no-lines>
+    <ion-select (ionChange)="selectchange()" [(ngModel)]="profName">
+      <ion-option *ngFor="let pf of profissional | async" [value] = "pf.nome">{{ pf.nome }}</ion-option>
+    </ion-select>
+  </ion-item>
+  <ion-card *ngFor="let sp of selectProf | async">
+    <ion-card-content>
+        <img src='{{ sp.file }}' class="card-img"/>
+        <p>{{ sp.sobre }}</p>
+    </ion-card-content>
+  </ion-card>
+  <ion-footer no-shadow>
+    <ion-toolbar position="bottom">
+      <button ion-button full>Quero Agendar</button>
+    </ion-toolbar>
+  </ion-footer>
+</ion-content>

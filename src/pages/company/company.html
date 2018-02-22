@@ -1,0 +1,26 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title *ngFor="let p of perfil | async">
+        {{ p.nome }}
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-tabs class="no-scroll">
+    <ion-content style="position: absolute; z-index: -1;">
+      <ion-slides autoplay="5000" loop="true" speed="3000" style="margin-bottom: -100px">
+        <ion-slide>
+          <img src="../../assets/imgs/slide-1.jpg">
+        </ion-slide>
+        <ion-slide>
+          <img src="../../assets/imgs/slide-2.jpg">
+        </ion-slide>
+        <ion-slide>
+          <img src="../../assets/imgs/slide-3.jpg">
+        </ion-slide>
+      </ion-slides>
+    </ion-content>
+    <ion-tab [root]="servicesRoot" tabTitle="Serviços" [rootParams]="navParams.data" tabIcon="cut"></ion-tab>
+    <ion-tab [root]="aboutRoot" tabTitle="Sobre" [rootParams]="navParams.data" tabIcon="home"></ion-tab>
+    <ion-tab [root]="commentsRoot" tabTitle="Comentários" [rootParams]="navParams.data" tabIcon="star"></ion-tab>
+</ion-tabs>
+

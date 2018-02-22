@@ -14,3 +14,61 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+button{
+    background-color: map-get($colors, secondary);
+    color: white;
+}
+
+.swiper-pagination-bullet-active {
+    background: map-get($colors, secondary);
+    opacity: 1;
+}
+.tabs-md .tabbar {
+    background: map-get($colors, dark);
+    height: 50px;
+    margin-top: 186px;
+    box-shadow: 2px 2px 2px grey;
+}
+.tabs-md .tab-button-icon{
+    color: white;
+    opacity: 0.9;
+    font-size: 2.2rem;
+}
+.tabs-md .tab-button{
+    color: white;
+    opacity: 0.9;
+}
+ion-slide.swiper-slide {
+    align-items: flex-start;
+}
+ion-card-header{
+    font-weight: bold;
+    background-color: map-get($colors, secondary);
+    border-radius: 5px 5px 0 0; 
+}
+.card-header-md{
+   color: white;
+   padding: 12px;
+   margin-bottom: 5px; 
+}
+ion-select{
+    width: 100%;
+    max-width: 100%;
+    border: 1px solid map-get($colors, secondary);
+    border-radius: 5px;
+  }
+
+  ion-footer{
+    background-color: map-get($colors, secondary);
+    color: white; 
+  }
+  ion-footer .toolbar-background-md{
+    background-color: map-get($colors, secondary);
+  }
+  .button-md{
+    background-color: map-get($colors, secondary);
+  }
+  
+  .button-md.activated{
+    background-color: #b3174c;
+  }
