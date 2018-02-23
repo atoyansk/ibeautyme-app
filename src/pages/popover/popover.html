@@ -1,8 +1,13 @@
 <ion-content padding class="no-scroll">
+  <ion-buttons end>
+    <button ion-button icon-only (click)="close()">
+      <ion-icon name="close"></ion-icon>
+    </button>
+  </ion-buttons>
   <ion-list>
-    <button ion-item (click)="close()">Login</button>
-    <button ion-item (click)="close()">Perfil</button>
-    <button ion-item (click)="close()">Agendamentos</button>
-    <button ion-item (click)="close()">Sair</button>
+    <button ion-item (click)="close()"><ion-icon name="key"></ion-icon> Login</button>
+    <button ion-item (click)="close()"><ion-icon name="person"></ion-icon> Perfil</button>
+    <button ion-item (click)="close()"><ion-icon name="calendar"></ion-icon> Agendamentos</button>
+    <button ion-item (click)="close()"><ion-icon name="exit"></ion-icon> Sair</button>
   </ion-list>
 </ion-content>

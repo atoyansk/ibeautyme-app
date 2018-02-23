@@ -2,4 +2,19 @@ page-popover {
     .no-scroll .scroll-content{
         overflow: hidden;
    }
+
+   .button-md {
+        background-color: rgba(0, 0, 0, 0);
+        color: #bdbdbd;
+        width: 20px;
+        height: 20px;
+    }
+    .button-md.activated{
+        background-color: #f0e9eb;
+        width: 20px;
+        height: 20px;
+    }
+    ion-icon{
+        color: #444444;
+    }
 }
