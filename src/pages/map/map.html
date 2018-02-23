@@ -2,7 +2,12 @@
   <ion-navbar>
     <ion-title>
       Encontre Seu Salão
-    </ion-title> 
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons> 
   </ion-navbar>
 </ion-header>
 

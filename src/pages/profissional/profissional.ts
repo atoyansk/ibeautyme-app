@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ServicesPage } from '../services/services';
+import { PopoverPage } from '../popover/popover';
 
 @IonicPage()
 @Component({
@@ -19,7 +20,7 @@ export class ProfissionalPage {
   selectProf: any;
   profName: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, public popoverCtrl: PopoverController) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfissionalPage');
@@ -42,6 +43,13 @@ export class ProfissionalPage {
     this.selectProf = this.db.list('prof-emp/', 
     ref => ref.orderByChild('nome').equalTo(this.profName)).valueChanges();
     console.log(this.profName);
+  }
+
+  presentPopover(myEvent) {
+    let popover = this.popoverCtrl.create(PopoverPage);
+    popover.present({
+      ev: myEvent
+    });
   }
 
 }

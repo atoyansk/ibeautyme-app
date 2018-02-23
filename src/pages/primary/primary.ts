@@ -2,6 +2,8 @@ import { HomePage } from './../home/home';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { MapPage } from '../map/map';
+import { PopoverController } from 'ionic-angular';
+import { PopoverPage } from './../popover/popover';
 
 @IonicPage()
 @Component({
@@ -14,11 +16,18 @@ export class PrimaryPage {
   mapPage = MapPage;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PrimaryPage');
+  }
+
+  presentPopover(myEvent) {
+    let popover = this.popoverCtrl.create(PopoverPage);
+    popover.present({
+      ev: myEvent
+    });
   }
 
 }

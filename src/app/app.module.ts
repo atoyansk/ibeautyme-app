@@ -11,6 +11,7 @@ import { HomePage } from '../pages/home/home';
 import { MapPage } from '../pages/map/map';
 import { CompanyPage } from '../pages/company/company';
 import { ProfissionalPage } from '../pages/profissional/profissional';
+import { PopoverPage } from './../pages/popover/popover';
 
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';
 import { Geolocation } from '@ionic-native/geolocation';
@@ -25,7 +26,8 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
     HomePage,
     MapPage,
     CompanyPage,
-    ProfissionalPage
+    ProfissionalPage,
+    PopoverPage
   ],
   imports: [
     BrowserModule,
@@ -39,7 +41,8 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
     HomePage,
     MapPage,
     CompanyPage,
-    ProfissionalPage
+    ProfissionalPage,
+    PopoverPage
   ],
   providers: [
     StatusBar,

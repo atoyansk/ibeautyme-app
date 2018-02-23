@@ -4,6 +4,11 @@
     <ion-title *ngFor="let p of perfil | async">
       {{ p.nome }}
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 
 </ion-header>

@@ -3,8 +3,14 @@
     <ion-title *ngFor="let p of perfil | async">
         {{ p.nome }}
     </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
   </ion-navbar>
 </ion-header>
+
 <ion-tabs class="no-scroll">
     <ion-content style="position: absolute; z-index: -1;">
       <ion-slides autoplay="5000" loop="true" speed="3000" style="margin-bottom: -100px">

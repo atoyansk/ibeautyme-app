@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef, NgZone } from '@angular/core';
-import { NavController, NavParams, IonicPage } from 'ionic-angular';
+import { NavController, NavParams, IonicPage, PopoverController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
 import 'rxjs/Rx';
@@ -7,6 +7,7 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
 import { Subscription } from 'rxjs/Rx';
 import { CompanyPage } from '../company/company';
+import { PopoverPage } from './../popover/popover';
 
 
 declare var google;
@@ -24,7 +25,8 @@ export class MapPage {
  
   constructor(public navCtrl: NavController, 
       public geolocation: Geolocation, 
-      public db: AngularFireDatabase, private zone: NgZone) { 
+      public db: AngularFireDatabase, private zone: NgZone,
+      public popoverCtrl: PopoverController) { 
         
         (window as any).angularComponent = { 
           goDetail: this.goDetail, 
@@ -129,6 +131,13 @@ export class MapPage {
       console.log(idPerfil);
       this.navCtrl.push(CompanyPage, {idPerfil}); 
     }); 
+  }
+
+  presentPopover(myEvent) {
+    let popover = this.popoverCtrl.create(PopoverPage);
+    popover.present({
+      ev: myEvent
+    });
   }
 
 }
