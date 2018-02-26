@@ -1,0 +1,13 @@
+page-agenda {
+    @import "fullcalendar.min.css";
+
+    .fc .fc-toolbar > * > * {
+        float: left;
+        margin-left: 1.2em;
+    }
+
+    .fc button {
+        height: 2.5em;
+        padding: 0 .4em;
+    }
+}

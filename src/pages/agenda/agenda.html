@@ -1,0 +1,23 @@
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Agenda: {{ details.nProf }}</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="presentPopover($event)">
+        <ion-icon name="contact"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="no-scroll">
+    <angular2-fullcalendar [options]="calendarOptions"></angular2-fullcalendar>
+
+    <ion-footer no-shadow>
+      <ion-toolbar position="bottom">
+        <button ion-button full>Confirmar</button>
+      </ion-toolbar>
+    </ion-footer>
+</ion-content>

@@ -5,6 +5,7 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { StatusBar } from '@ionic-native/status-bar';
 import { AngularFireModule } from 'angularfire2/index';
 import { AngularFireDatabase, AngularFireDatabaseModule, AngularFireList } from 'angularfire2/database';
+import {CalendarComponent} from "ap-angular2-fullcalendar/src/calendar/calendar";
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -12,12 +13,14 @@ import { MapPage } from '../pages/map/map';
 import { CompanyPage } from '../pages/company/company';
 import { ProfissionalPage } from '../pages/profissional/profissional';
 import { PopoverPage } from './../pages/popover/popover';
+import { AgendaPage } from '../pages/agenda/agenda';
 
 import { GoogleMaps, GoogleMap, GoogleMapsEvent, GoogleMapOptions, CameraPosition, MarkerOptions, Marker } from '@ionic-native/google-maps';
 import { Geolocation } from '@ionic-native/geolocation';
 import { ConnectivityServiceProvider } from '../providers/connectivity-service/connectivity-service';
 import { Network } from '@ionic-native/network';
 import { FIREBASE_CONFIG } from './firebase.credentials';
+
 
 
 @NgModule({
@@ -27,7 +30,9 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
     MapPage,
     CompanyPage,
     ProfissionalPage,
-    PopoverPage
+    PopoverPage,
+    AgendaPage,
+    CalendarComponent
   ],
   imports: [
     BrowserModule,
@@ -42,7 +47,8 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
     MapPage,
     CompanyPage,
     ProfissionalPage,
-    PopoverPage
+    PopoverPage,
+    AgendaPage
   ],
   providers: [
     StatusBar,

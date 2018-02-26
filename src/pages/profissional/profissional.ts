@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-an
 import { AngularFireDatabase } from 'angularfire2/database';
 import { ServicesPage } from '../services/services';
 import { PopoverPage } from '../popover/popover';
+import { AgendaPage } from './../agenda/agenda';
 
 @IonicPage()
 @Component({
@@ -13,6 +14,8 @@ export class ProfissionalPage {
 
   servicos = this.navParams.data.s;
   idPerfil: string = this.navParams.data.s.idPerfil;
+  sNome: string = this.navParams.data.s.nome;
+  sTempo: string = this.navParams.data.s.tempo;
 
   perfil: any;
   profissional: any;
@@ -50,6 +53,12 @@ export class ProfissionalPage {
     popover.present({
       ev: myEvent
     });
+  }
+
+  goTo(ev){
+    let detail = {idEmp: this.idPerfil, nServico: this.sNome, tServico: this.sTempo, nProf: this.profName}
+    console.log(detail);
+    this.navCtrl.push(AgendaPage, {detail});
   }
 
 }
