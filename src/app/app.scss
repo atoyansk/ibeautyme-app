@@ -34,6 +34,12 @@ button{
     opacity: 0.9;
     font-size: 2.2rem;
 }
+.tabs-md .tab-button[aria-selected=true] .tab-button-icon{
+  color: map-get($colors, secondary);
+}
+.tabs-md .tab-button[aria-selected=true]{
+  color: map-get($colors, secondary);
+}
 .tabs-md .tab-button{
     color: white;
     opacity: 0.9;
@@ -75,4 +81,22 @@ ion-select{
 
   .no-scroll .scroll-content{
     overflow: hidden;
+  }
+
+  .button-light{
+    background-color: map-get($colors, light);
+    color: #222;
+    font-weight: bold;
+    margin-top: 20px;
+  }
+  .button-light.activated{
+    background-color: #AAA;
+  }
+
+  .logIn{
+    background-color: limegreen;
+  }
+
+  .toast-container{
+    background-color: maroon;
   }

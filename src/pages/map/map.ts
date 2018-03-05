@@ -2,6 +2,7 @@ import { Component, ViewChild, ElementRef, NgZone } from '@angular/core';
 import { NavController, NavParams, IonicPage, PopoverController } from 'ionic-angular';
 import { Geolocation } from '@ionic-native/geolocation';
 import { AngularFireDatabase, AngularFireList } from 'angularfire2/database';
+import { AngularFireAuth } from 'angularfire2/auth';
 import 'rxjs/Rx';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/operator/map';
@@ -22,16 +23,29 @@ export class MapPage {
   @ViewChild('mapa') mapElement: ElementRef;
   mapa: any;
   markers: any;
+
+  logadoStyle: boolean;
+  userId: string;
  
   constructor(public navCtrl: NavController, 
       public geolocation: Geolocation, 
       public db: AngularFireDatabase, private zone: NgZone,
-      public popoverCtrl: PopoverController) { 
+      public popoverCtrl: PopoverController, 
+      private afAuth: AngularFireAuth) { 
         
         (window as any).angularComponent = { 
           goDetail: this.goDetail, 
           zone: zone 
         };
+
+        this.afAuth.authState.subscribe(user => {
+          if(user){
+            this.userId = user.uid;
+            this.logadoStyle = true;
+          } else{
+            this.logadoStyle = false;
+          }
+        })
         
       }
 

@@ -3,6 +3,7 @@ import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-an
 import { PopoverPage } from '../popover/popover';
 import * as $ from 'jquery';
 import * as moment from "moment";
+import { AngularFireAuth } from 'angularfire2/auth';
 
 
 @IonicPage()
@@ -18,8 +19,20 @@ export class AgendaPage {
 
   initialLocaleCode = 'pt-br';
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController) {
+  logadoStyle: boolean;
+  userId: string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController, private afAuth: AngularFireAuth) {
   
+    this.afAuth.authState.subscribe(user => {
+      if(user){
+        this.userId = user.uid;
+        this.logadoStyle = true;
+      } else{
+        this.logadoStyle = false;
+      }
+    })
+    
   }
 
   ionViewDidLoad() {

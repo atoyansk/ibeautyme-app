@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { LoginPage } from '../login/login';
+import { RegisterPage } from '../register/register';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @IonicPage()
 @Component({
@@ -8,13 +11,23 @@ import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angul
 })
 export class PopoverPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController) {}
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private afAuth: AngularFireAuth) {}
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PopoverPage');
   }
 
   close() {
+    this.viewCtrl.dismiss();
+  }
+
+  login(){
+    this.navCtrl.push(LoginPage);
+    this.viewCtrl.dismiss();
+  }
+
+  logout(){
+    this.afAuth.auth.signOut();
     this.viewCtrl.dismiss();
   }
 

@@ -4,7 +4,7 @@
         {{ p.nome }}
     </ion-title>
     <ion-buttons end>
-      <button ion-button icon-only (click)="presentPopover($event)">
+      <button ion-button icon-only [class.logIn]="logadoStyle" (click)="presentPopover($event)">
         <ion-icon name="contact"></ion-icon>
       </button>
     </ion-buttons>

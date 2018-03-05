@@ -4,6 +4,7 @@ import { AngularFireDatabase } from 'angularfire2/database';
 import { ServicesPage } from '../services/services';
 import { PopoverPage } from '../popover/popover';
 import { AgendaPage } from './../agenda/agenda';
+import { AngularFireAuth } from 'angularfire2/auth';
 
 @IonicPage()
 @Component({
@@ -23,7 +24,21 @@ export class ProfissionalPage {
   selectProf: any;
   profName: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, public popoverCtrl: PopoverController) {}
+  logadoStyle: boolean;
+  userId: string;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public db: AngularFireDatabase, public popoverCtrl: PopoverController, private afAuth: AngularFireAuth) {
+
+    this.afAuth.authState.subscribe(user => {
+      if(user){
+        this.userId = user.uid;
+        this.logadoStyle = true;
+      } else{
+        this.logadoStyle = false;
+      }
+    })
+
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad ProfissionalPage');
