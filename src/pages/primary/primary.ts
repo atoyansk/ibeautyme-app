@@ -1,10 +1,9 @@
-import { HomePage } from './../home/home';
+import { HomePage } from '../home/home';
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, IonicPage } from 'ionic-angular';
 import { MapPage } from '../map/map';
 import { PopoverController } from 'ionic-angular';
-import { PopoverPage } from './../popover/popover';
-import { LoginPage } from '../login/login';
+import { PopoverPage } from '../popover/popover';
 import { AngularFireAuth } from 'angularfire2/auth';
 
 @IonicPage()

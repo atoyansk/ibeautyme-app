@@ -1,12 +1,11 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
+import { NavController, NavParams, PopoverController } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
-import { ServicesPage } from '../services/services';
 import { PopoverPage } from '../popover/popover';
-import { AgendaPage } from './../agenda/agenda';
+import { AgendaPage } from '../agenda/agenda';
 import { AngularFireAuth } from 'angularfire2/auth';
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-profissional',
   templateUrl: 'profissional.html',

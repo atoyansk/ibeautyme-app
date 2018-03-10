@@ -4,7 +4,7 @@ import { CommentsPage } from './comments';
 
 @NgModule({
   declarations: [
-    CommentsPage,
+    CommentsPage
   ],
   imports: [
     IonicPageModule.forChild(CommentsPage),

@@ -1,10 +1,9 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, ViewController } from 'ionic-angular';
+import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
-import { RegisterPage } from '../register/register';
 import { AngularFireAuth } from 'angularfire2/auth';
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-popover',
   templateUrl: 'popover.html',

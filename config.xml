@@ -21,6 +21,7 @@
     <preference name="SplashScreenDelay" value="3000" />
     <platform name="android">
         <allow-intent href="market:*" />
+        <allow-intent href="https://maps.googleapis.com" />
         <icon density="ldpi" src="resources/android/icon/drawable-ldpi-icon.png" />
         <icon density="mdpi" src="resources/android/icon/drawable-mdpi-icon.png" />
         <icon density="hdpi" src="resources/android/icon/drawable-hdpi-icon.png" />
@@ -77,15 +78,15 @@
         <splash height="2732" src="resources/ios/splash/Default@2x~universal~anyany.png" width="2732" />
     </platform>
     <allow-navigation href="http://192.168.43.232:8100" />
+    <engine name="browser" spec="5.0.3" />
+    <engine name="android" spec="^6.3.0" />
     <plugin name="ionic-plugin-keyboard" spec="^2.2.1" />
     <plugin name="cordova-plugin-whitelist" spec="^1.3.1" />
-    <plugin name="cordova-plugin-device" spec="^1.1.4" />
     <plugin name="cordova-plugin-splashscreen" spec="^4.0.3" />
     <plugin name="cordova-plugin-ionic-webview" spec="^1.1.16" />
-    <plugin name="cordova-plugin-googlemaps" spec="^2.1.1">
+    <plugin name="cordova-plugin-googlemaps" spec="git+https://github.com/mapsplugin/cordova-plugin-googlemaps.git">
         <variable name="API_KEY_FOR_ANDROID" value="AIzaSyAyk8fqmZVoo4Zq2V1ldEfNsafBXxbGY5o" />
         <variable name="API_KEY_FOR_IOS" value="AIzaSyCxkceHQSjVEye1eQYNtWxlBpokus683yA" />
     </plugin>
     <plugin name="cordova-plugin-geolocation" spec="^3.0.0" />
-    <plugin name="cordova-plugin-network-information" spec="^2.0.1" />
 </widget>

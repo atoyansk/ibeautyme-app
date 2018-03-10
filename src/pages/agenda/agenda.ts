@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams, PopoverController } from 'ionic-angular';
+import { NavController, NavParams, PopoverController, ToastController } from 'ionic-angular';
 import { PopoverPage } from '../popover/popover';
 import * as $ from 'jquery';
 import * as moment from "moment";
 import { AngularFireAuth } from 'angularfire2/auth';
+import { ReadyPage } from '../ready/ready';
+import { LoginPage } from '../login/login';
 
 
-@IonicPage()
+//@IonicPage()
 @Component({
   selector: 'page-agenda',
   templateUrl: 'agenda.html',
@@ -22,7 +24,8 @@ export class AgendaPage {
   logadoStyle: boolean;
   userId: string;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController, private afAuth: AngularFireAuth) {
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController, private afAuth: AngularFireAuth, private toast: ToastController) {
   
     this.afAuth.authState.subscribe(user => {
       if(user){
@@ -67,6 +70,7 @@ export class AgendaPage {
     selectOverlap: false,
     slotDuration: '00:30:00',
       selectHelper: true,
+      longPressDelay: 100,
       select: (start, end) => {
         $('angular2-fullcalendar').fullCalendar('removeEvents');
         $('angular2-fullcalendar').fullCalendar('rerenderEvents');        
@@ -75,7 +79,10 @@ export class AgendaPage {
         var title = this.servico;
         var eventData;
         if(start.isBefore(moment())) {
-          alert("Invalid Time");
+          this.toast.create({
+            message: 'O horário selecionado já passou!',
+            duration: 3000
+          }).present();
           $('angular2-fullcalendar').fullCalendar('unselect');
           return false;
         }  
@@ -92,7 +99,10 @@ export class AgendaPage {
       },
     dayClick: () => {
       //this.navCtrl.push(EventPage, {
+        //let eventClient = $('angular2-fullcalendar').fullCalendar('clientEvents');
+        //$('angular2-fullcalendar').fullCalendar('renderEvents', eventClient, true);
         console.log(this.servico);
+        //console.log(eventClient);
       //});
     }
   }
@@ -102,6 +112,23 @@ export class AgendaPage {
     popover.present({
       ev: myEvent
     });
+  }
+
+  doFinal(){
+    this.afAuth.authState.subscribe(user => {
+      if(user){
+        this.userId = user.uid;
+        this.navCtrl.push(ReadyPage);
+        console.log(this.details);
+        console.log(this.userId);
+        let eventClient = $('angular2-fullcalendar').fullCalendar('clientEvents');
+        console.log(eventClient[0].start.toString());
+        console.log(eventClient[0].end.toString());
+      } else{
+        this.navCtrl.push(LoginPage);
+        console.log(this.servico);
+      }
+    })
   }
 
 }

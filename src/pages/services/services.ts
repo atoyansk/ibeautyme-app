@@ -1,4 +1,3 @@
-import { CompanyPage } from './../company/company';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams, App } from 'ionic-angular';
 import { AngularFireDatabase } from 'angularfire2/database';
