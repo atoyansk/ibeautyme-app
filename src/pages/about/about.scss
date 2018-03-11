@@ -5,4 +5,8 @@ page-about {
     .texto{
         text-align: justify;
     }
+
+    ion-icon{
+        color: map-get($colors, secondary);
+    }
 }

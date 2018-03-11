@@ -1,6 +1,12 @@
 
-<ion-content padding>
-  <ion-item no-lines text-wrap class="texto" *ngFor="let p of perfil | async">
+<ion-content padding *ngFor="let p of perfil | async">
+  <ion-item style="font-weight: bold;"><ion-icon name="pin"></ion-icon> Endereço</ion-item>
+  <ion-item no-lines text-wrap class="texto">{{ p.endereco }}</ion-item>
+  <ion-item no-lines text-wrap class="texto">
     {{ p.descricao }}
   </ion-item>
+  <ion-item style="font-weight: bold;"><ion-icon name="card"></ion-icon> Pagamento</ion-item>
+  <ion-row>
+    <img src="assets/imgs/payment.png"/>
+  </ion-row>
 </ion-content>
