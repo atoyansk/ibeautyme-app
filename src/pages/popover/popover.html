@@ -5,9 +5,10 @@
     </button>
   </ion-buttons>
   <ion-list>
-    <button ion-item (click)="login()"><ion-icon name="key"></ion-icon> Login</button>
-    <button ion-item (click)="close()"><ion-icon name="person"></ion-icon> Perfil</button>
-    <button ion-item (click)="close()"><ion-icon name="calendar"></ion-icon> Agendamentos</button>
-    <button ion-item (click)="logout()"><ion-icon name="exit"></ion-icon> Sair</button>
+    <button ion-item *ngIf="!logado" (click)="login()"><ion-icon name="key"></ion-icon> Login</button>
+    <button ion-item *ngIf="logado" (click)="close()"><ion-icon name="person"></ion-icon> Perfil</button>
+    <button ion-item *ngIf="logado" (click)="listAgenda()"><ion-icon name="calendar"></ion-icon> Agendamentos</button>
+    <button ion-item (click)="close()"><ion-icon name="settings"></ion-icon> Configurações</button>
+    <button ion-item *ngIf="logado" (click)="logout()"><ion-icon name="exit"></ion-icon> Sair</button>
   </ion-list>
 </ion-content>

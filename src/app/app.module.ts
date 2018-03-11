@@ -13,19 +13,15 @@ import { HomePage } from '../pages/home/home';
 import { MapPage } from '../pages/map/map';
 import { CompanyPage } from '../pages/company/company';
 
-//import { AboutPage } from '../pages/about/about';
-
 import { ProfissionalPage } from '../pages/profissional/profissional';
 import { PopoverPage } from '../pages/popover/popover';
 import { AgendaPage } from '../pages/agenda/agenda';
 import { LoginPage } from '../pages/login/login';
 import { RegisterPage } from '../pages/register/register';
 import { ReadyPage } from '../pages/ready/ready';
+import { ListAgendaPage } from '../pages/list-agenda/list-agenda';
 
-//import { GoogleMaps } from '@ionic-native/google-maps';
 import { Geolocation } from '@ionic-native/geolocation';
-// import { ConnectivityServiceProvider } from '../providers/connectivity-service/connectivity-service';
-// import { Network } from '@ionic-native/network';
 import { FIREBASE_CONFIG } from './firebase.credentials';
 
 
@@ -35,14 +31,14 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
     HomePage,
     MapPage,
     CompanyPage,
-    //AboutPage,
     ProfissionalPage,
     PopoverPage,
     AgendaPage,
     CalendarComponent,
     LoginPage,
     RegisterPage,
-    ReadyPage
+    ReadyPage,
+    ListAgendaPage
   ],
   imports: [
     BrowserModule,
@@ -57,23 +53,20 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
     HomePage,
     MapPage,
     CompanyPage,
-    //AboutPage,
     ProfissionalPage,
     PopoverPage,
     AgendaPage,
     CalendarComponent,
     LoginPage,
     RegisterPage,
-    ReadyPage
+    ReadyPage,
+    ListAgendaPage
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    //GoogleMaps,
     Geolocation,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
-    // ConnectivityServiceProvider,
-    // Network
   ]
 })
 export class AppModule {}

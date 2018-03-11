@@ -1,3 +1,4 @@
+import { ListAgendaPage } from './../list-agenda/list-agenda';
 import { Component } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 
@@ -15,5 +16,9 @@ export class ReadyPage {
   // ionViewDidLoad() {
   //   console.log('ionViewDidLoad ReadyPage');
   // }
+
+  listAgenda(){
+    this.navCtrl.push(ListAgendaPage);
+  }
 
 }

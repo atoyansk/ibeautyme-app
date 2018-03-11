@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { NavController, NavParams, ViewController } from 'ionic-angular';
 import { LoginPage } from '../login/login';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { ListAgendaPage } from '../list-agenda/list-agenda';
 
 //@IonicPage()
 @Component({
@@ -10,7 +11,20 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class PopoverPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private afAuth: AngularFireAuth) {}
+  userId: string;
+  logado:boolean = false;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public viewCtrl: ViewController, private afAuth: AngularFireAuth) {
+
+    this.afAuth.authState.subscribe(user => {
+      if(user){
+        this.userId = user.uid;
+        this.logado = true;
+      } else{
+        this.logado = false;
+      }
+    })
+  }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad PopoverPage');
@@ -22,6 +36,11 @@ export class PopoverPage {
 
   login(){
     this.navCtrl.push(LoginPage);
+    this.viewCtrl.dismiss();
+  }
+
+  listAgenda(){
+    this.navCtrl.push(ListAgendaPage);
     this.viewCtrl.dismiss();
   }
 
