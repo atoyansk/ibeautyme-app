@@ -15,6 +15,7 @@ export class ProfissionalPage {
   servicos = this.navParams.data.s;
   idPerfil: string = this.navParams.data.s.idPerfil;
   sNome: string = this.navParams.data.s.nome;
+  sPreco: string = this.navParams.data.s.preco;
   sTempo: string = this.navParams.data.s.tempo;
 
   perfil: any;
@@ -70,7 +71,7 @@ export class ProfissionalPage {
   }
 
   goTo(ev){
-    let detail = {idEmp: this.idPerfil, nServico: this.sNome, tServico: this.sTempo, nProf: this.profName}
+    let detail = {idEmp: this.idPerfil, nServico: this.sNome, pServico: this.sPreco, tServico: this.sTempo, nProf: this.profName}
     console.log(detail);
     this.navCtrl.push(AgendaPage, {detail});
   }

@@ -7,6 +7,35 @@
 </ion-header>
 
 
-<ion-content padding>
+<ion-content padding class="no-scroll">
+  <ion-scroll style="width:100%;height:410px;" scrollY="true">
+    <ion-list *ngFor="let a of agenda | async" style="border-bottom: 1px solid #CCC;" scroll="true">
+          <ion-row>
+            Empresa: {{ a.Empresa }}
+          </ion-row>
+          <ion-row>
+            Serviço: {{ a.Servico }}
+          </ion-row>
+          <ion-row>
+              Preço: R$ {{ a.Preco }}
+          </ion-row>
+          <ion-row>
+              Data: {{ a.dataInicio.slice(4, 15) }}
+          </ion-row>
+          <ion-row>
+              Horário: Das {{ a.dataInicio.slice(16, 21) }} até {{ a.dataFim.slice(16, 21) }}
+          </ion-row>
+          <ion-row style="margin-top: 5px; padding-bottom: 5px;">
+              <button ion-button class="confirm">Confirmar</button>
+              <button ion-button class="cancel">Cancelar</button>
+              <button ion-button class="comment">Comentar</button>
+          </ion-row>          
+    </ion-list>
+  </ion-scroll>
 
+    <ion-footer no-shadow>
+        <ion-toolbar position="bottom">
+          <button ion-button full (click)="newAgenda()">Novo Agendamento</button>
+        </ion-toolbar>
+      </ion-footer>
 </ion-content>

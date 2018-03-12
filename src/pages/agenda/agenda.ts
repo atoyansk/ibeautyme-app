@@ -4,6 +4,7 @@ import { PopoverPage } from '../popover/popover';
 import * as $ from 'jquery';
 import * as moment from "moment";
 import { AngularFireAuth } from 'angularfire2/auth';
+import { AngularFireDatabase } from 'angularfire2/database';
 import { ReadyPage } from '../ready/ready';
 import { LoginPage } from '../login/login';
 
@@ -16,7 +17,10 @@ import { LoginPage } from '../login/login';
 export class AgendaPage {
 
   details = this.navParams.data.detail;
+  empresa = this.navParams.data.detail.idEmp;
   servico = this.navParams.data.detail.nServico;
+  profissional = this.navParams.data.detail.nProf;
+  preco = this.navParams.data.detail.pServico;
   tempo = this.navParams.data.detail.tServico + ":00";
 
   initialLocaleCode = 'pt-br';
@@ -25,7 +29,7 @@ export class AgendaPage {
   userId: string;
 
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController, private afAuth: AngularFireAuth, private toast: ToastController) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, public popoverCtrl: PopoverController, private afAuth: AngularFireAuth, private db: AngularFireDatabase, private toast: ToastController) {
   
     this.afAuth.authState.subscribe(user => {
       if(user){
@@ -124,6 +128,11 @@ export class AgendaPage {
         let eventClient = $('angular2-fullcalendar').fullCalendar('clientEvents');
         console.log(eventClient[0].start.toString());
         console.log(eventClient[0].end.toString());
+        let inicio = eventClient[0].start.toString();
+        let fim = eventClient[0].end.toString();
+        let booking = {Empresa: this.empresa, Servico: this.servico, Preco: this.preco, Duracao: this.tempo, Profissional: this.profissional, dataInicio: inicio, dataFim: fim}
+
+        this.db.list(`agendamentos/${this.userId}`).push(booking);
       } else{
         this.navCtrl.push(LoginPage);
         console.log(this.servico);
