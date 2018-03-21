@@ -12,9 +12,10 @@
 </ion-header>
 
 
-<ion-content padding class="no-scroll">
-    <ion-col width-50> 
-        <ion-card type="button" [navPush]="mapPage">
+<ion-content class="no-scroll">
+    <ion-col> 
+      <div class="firstHeader">Selecione uma Categoria</div>
+        <!-- <ion-card type="button" [navPush]="mapPage">
             <div id="image_div"> 
               </div>
           <ion-card-header>
@@ -36,6 +37,13 @@
             <div></div>
             <div>Find Beauty Professionals close to you</div>
           </ion-card-content>
-        </ion-card>
+        </ion-card> -->
+
+        <div class="box1 overlay black" type="button" [navPush]="mapPage">
+          Salões de Beleza
+        </div>
+        <div class="box2 overlay black" type="button" [navPush]="homePage">
+          Profissionais de Beleza
+        </div>
     </ion-col>
 </ion-content>

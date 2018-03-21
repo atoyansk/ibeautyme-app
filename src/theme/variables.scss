@@ -48,14 +48,24 @@ $toolbar-background: color($colors, primary) !default;
 // --------------------------------------------------
 // iOS only Sass variables can go here
 
-
+$range-ios-knob-width: 35px;
+$range-ios-bar-height: 3px;
+$range-ios-tick-height: 10px;
+$range-ios-tick-width: 10px;
+$range-ios-tick-border-radius: 10px;
 
 
 // App Material Design Variables
 // --------------------------------------------------
 // Material Design only Sass variables can go here
 
-
+$range-md-knob-width: 35px;
+$range-md-bar-height: 3px;
+$range-md-tick-height: 10px;
+$range-md-tick-width: 10px;
+$range-md-tick-background-color: color($colors, light);
+$range-md-tick-active-background-color: color($colors, secondary); 
+$range-md-tick-border-radius: 10px;
 
 
 // App Windows Variables

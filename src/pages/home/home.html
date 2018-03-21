@@ -1,11 +1,43 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      iBeauty.me
+      Encontre um Profissional
     </ion-title>
+    <ion-buttons end>
+        <button ion-button icon-only [class.logIn]="logadoStyle" (click)="presentPopover($event)">
+          <ion-icon name="contact"></ion-icon>
+        </button>
+      </ion-buttons>
   </ion-navbar>
 </ion-header>
 
 <ion-content>
-  
+        <ion-card *ngFor="let l of lists | async | filter:distancia | filterDistance:distancia" type="button" (click)="goDetail(l.idPerfil)"> 
+            <img src="{{ l.file }}" class="eFile"/>
+            <ion-card-content>
+                <h2>{{ l.nome }}</h2>
+                <ion-row>
+                    <ion-avatar item-left>
+                        <ion-icon name="pin" class="rosa"></ion-icon>
+                    </ion-avatar>
+                    <p class="eEndereco">{{ l.endereco }}</p>
+                </ion-row>      
+                <p class="eDistance">{{ l.distance }} km</p>
+            </ion-card-content>
+            <button ion-button full>Eu quero</button>        
+        </ion-card>
 </ion-content>
+<ion-footer no-shadow>
+  <ion-toolbar position="bottom">
+      <ion-row>
+        <ion-col width-33 text-right class="label-range">
+            Distância : <ion-badge item-end>Até {{ distancia }} km</ion-badge>
+        </ion-col>
+      </ion-row>
+      <ion-range min="10" max="100" step="10" snaps="true" color="secondary" [(ngModel)]="distancia">
+            <ion-label class="label-range" range-left>10 km</ion-label>
+            <ion-label class="label-range" range-right>100 km</ion-label>
+      </ion-range>
+  </ion-toolbar>
+</ion-footer>
+

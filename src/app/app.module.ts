@@ -7,6 +7,7 @@ import { AngularFireModule } from 'angularfire2/index';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { CalendarComponent } from "ap-angular2-fullcalendar/src/calendar/calendar";
+import { Ionic2RatingModule } from 'ionic2-rating';
 
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
@@ -23,6 +24,9 @@ import { ListAgendaPage } from '../pages/list-agenda/list-agenda';
 
 import { Geolocation } from '@ionic-native/geolocation';
 import { FIREBASE_CONFIG } from './firebase.credentials';
+import { ModalPage } from '../pages/modal/modal';
+import { RangePipe } from '../pipes/range-pipe';
+import { StartPipe } from '../pipes/start-pipe';
 
 
 @NgModule({
@@ -38,14 +42,18 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
     LoginPage,
     RegisterPage,
     ReadyPage,
-    ListAgendaPage
+    ListAgendaPage,
+    ModalPage,
+    RangePipe,
+    StartPipe
   ],
   imports: [
     BrowserModule,
     IonicModule.forRoot(MyApp,{tabsPlacement: 'top'}),
     AngularFireModule.initializeApp(FIREBASE_CONFIG),
     AngularFireDatabaseModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    Ionic2RatingModule
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -60,7 +68,8 @@ import { FIREBASE_CONFIG } from './firebase.credentials';
     LoginPage,
     RegisterPage,
     ReadyPage,
-    ListAgendaPage
+    ListAgendaPage,
+    ModalPage
   ],
   providers: [
     StatusBar,

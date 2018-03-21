@@ -1,8 +1,9 @@
 import { Component } from '@angular/core';
-import { NavController, NavParams } from 'ionic-angular';
+import { NavController, NavParams, ModalController } from 'ionic-angular';
 import { PrimaryPage } from '../primary/primary';
 import { AngularFireDatabase } from 'angularfire2/database';
 import { AngularFireAuth } from 'angularfire2/auth';
+import { ModalPage } from '../modal/modal';
 
 
 //@IonicPage()
@@ -16,7 +17,7 @@ export class ListAgendaPage {
   agenda: any;
   empresa: any;
 
-  constructor(public navCtrl: NavController, public navParams: NavParams, private db: AngularFireDatabase, private afAuth: AngularFireAuth) {
+  constructor(public navCtrl: NavController, public navParams: NavParams, private db: AngularFireDatabase, private afAuth: AngularFireAuth, public modalCtrl: ModalController) {
 
     this.afAuth.authState.subscribe(user => {
       if(user){
@@ -42,6 +43,11 @@ export class ListAgendaPage {
 
   newAgenda(){
     this.navCtrl.push(PrimaryPage);
+  }
+
+  openModal() {
+    let commentModal = this.modalCtrl.create(ModalPage);
+    commentModal.present();
   }
 
 }
